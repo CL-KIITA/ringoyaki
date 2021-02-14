@@ -1,0 +1,33 @@
+{
+  "name": "ringoyaki",
+  "version": "0.1.0",
+  "description": "Render translations for SCJ common apple sentences",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack serve"
+  },
+  "author": "skytomo",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^5.1.0",
+    "path": "^0.12.7",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.1.5",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.27"
+  }
+}
