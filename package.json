@@ -9,8 +9,9 @@
     "start": "webpack serve",
     "start-docker": "webpack serve --host 0.0.0.0",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://skytomo221.github.io/ringoyaki",
   "author": "skytomo",
   "license": "ISC",
   "devDependencies": {

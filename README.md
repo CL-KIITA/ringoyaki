@@ -5,71 +5,50 @@ ringoyaki（りんご焼き）は、SCJ共通りんご文の翻訳を手軽に�
 ![](images/screenshot.png)
 
 ringoyakiはSCJ共通りんご文と同じく開発途中です。
-ご了承ください。
+あらかじめご了承ください。
+
+[デモを確認する](https://skytomo221.github.io/ringoyaki/)
 
 ## 何ができるの？
 
-- りんご文を翻訳したものがブラウザに美しく描画されます。
-- 画一されたデザインのため、他の言語と見比べやすいです。
+- SCJ共通りんご文を翻訳したものがブラウザに美しく描画されます。
+- 画一されたデザインのため、他の言語で翻訳されたりんご文と見比べやすいです。
 - 編集しながら、出来具合を確認することができます。
 - 翻訳されていない部分は描画されないため、未完成でも見やすいです。
 - 手軽にそのままの状態でWebページとしてインターネット上に公開することができます。
 
-## 導入方法
+## デモを試してみる
 
-簡単です！
-以下の手順に従って導入しましょう。
+1. `git clone https://github.com/skytomo221/ringoyaki` でリポジトリをクローンします。
+2. `cd ringoyaki` でリポジトリ内に移動して、
+3. `npm install` でパッケージの復元をします。
+4. `npm run start` でコンパイルします。ブラウザが表示されれば成功です。
 
-**注意！**
-Windowsの方のみの方法しか書かれていません。
-私はMacを持っていないので手順を書くことができません。
+## 実際に導入する
 
-（Dockerが大好きなあなたへ：Dockerを使うこともできます。以下に方法を書きました。）
+実際に導入するときは、GitHub Pagesでウェブサイトをインターネット上に公開することを見据えて、GitHubアカウントを作っておきましょう。
 
-### gitのインストール
+1. https://github.com/skytomo221/ringoyaki へ行きます。
+2. Forkボタンを押して、フォークしたいアカウントを選択し、フォークします。
+3. リポジトリ名を適宜変更します。
+4. `git clone https://github.com/(username)/ringoyaki`をしてフォークしたあなたのリポジトリをクローンします。`(username)`にはユーザ名を入力してください。
+5. `cd ringoyaki` でリポジトリ内に移動して、
+6. `npm install` でパッケージの復元をします。
+7. `npm run start` でコンパイルします。ブラウザが表示されればコンパイルが成功しました。
+8. この状態で`./src/data/translation.json`をSCJ共通りんご文のドキュメントを見ながら訳していきます。
+   - `translation`のところに`id`に対応した翻訳文を埋めていきます。
+   - ファイルを保存するたびに、webpackの機能で自動的にリビルトします。保存して、ウェブページが更新されていくのを確認しましょう。
+   - `translation`が空文字列の場合は表示されないため、未翻訳の部分はそのまにしておきましょう。
+9. 終了する際はターミナルに<kbd>Ctrl</kbd> + <kbd>C</kbd>を入力します。
 
-gitをインストールしていない方は以下の手順に従ってください。
+## GitHub PagesでWebサイトを公開する
 
-1. Windows PowerShell を起動させます
-2. [scoop](https://scoop.sh/)のインストールをします
-   1. Windows PowerShellで `Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')` を実行します。（実行するには、そのコマンドを入力してエンターキーを押します。）
-   2. もし、`PowerShell requires an execution policy in [Unrestricted, RemoteSigned, ByPass] to run Scoop.`というようなエラーが出た場合は、`Set-ExecutionPolicy RemoteSigned -scope CurrentUser` を実行してから、もう一度 2.1. のコマンドを実行します。
-3. `scoop install git`を実行して`git`をインストールします。
-4. `git`を実行してもエラーが発生しなければ成功です！
+1. `./package.json`の`homepage`の14行目くらいにある`https://skytomo221.github.io/ringoyaki`を`https://(username).github.io/ringoyaki`に変更します。
+2. `npm run deploy`をします。
+3. パスワードが聞かれたり認証を求められたりしたら適宜対応します。
+4. `https://(username).github.io/ringoyaki`にアクセスして、公開されていたら成功です。やったね！ちなみに、この処理には15分ほどかかるので、コーヒーでも飲みながら気長に待ちましょう。
 
-### node.jsのインストール
-
-node.jsをインストールしていない方は以下の手順に従ってください。
-ただし、すでにscoopをインストールした場合は、3.から進めてください。
-
-1. Windows PowerShell を起動させます
-2. [scoop](https://scoop.sh/)のインストールをします
-   1. Windows PowerShellで `Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')` を実行します。（実行するには、そのコマンドを入力してエンターキーを押します。）
-   2. もし、`PowerShell requires an execution policy in [Unrestricted, RemoteSigned, ByPass] to run Scoop.`というようなエラーが出た場合は、`Set-ExecutionPolicy RemoteSigned -scope CurrentUser` を実行してから、もう一度 2.1. のコマンドを実行します。
-3. `scoop install nodejs-lts`を実行してnode.jsをインストールします。
-4. `node -v`を実行してもエラーが発生しなければ成功です！
-
-### 導入する
-
-さて、導入してみましょう！
-
-1. りんご文の翻訳作業を行う場所、つまり、このリポジトリをクローンしたいフォルダをエクスプローラーで開いてください。
-2. エクスプローラーのファイルやフォルダが何もないところで、Shiftキーを押しながら、右クリックを押してください。
-3. すると「PowerShell ウインドウをここで開く(S)」というボタンが現れるのでそれをクリックしてください。
-4. 青い画面が現れましたか？
-5. `git clone https://github.com/skytomo221/ringoyaki`を実行します。
-6. これでリポジトリがクローンされました。
-7. 次に`cd ringoyaki`を実行します。
-8. `npm install`を実行します。
-9. `npm run start`を実行します。
-10. ブラウザが開きましたか？成功です！
-11. このまま状態で`./src/data/translation.json`をお好みのテキストエディタで開きます。
-    1. えっ、テキストエディタがメモ帳しかない？[Visual Studio Code](https://code.visualstudio.com/)をインストールしましょう。
-12. translationの項目にある英文をあなたの言語に置き換えて、保存しましょう。
-13. もう一度、ブラウザを見てみましょう。更新されていますか？おめでとうございます。これで今日からあなたも立派なりんご文の翻訳者です！
-14. 終了したい場合はWindows PowerShellのCtrl+Cを押してください。
-
-### Dockerを使って導入する
+## Dockerを使って導入する
 
 上級者向けです。（いまいちDockerに慣れていないので、もし改善できるところがあったらプルリクください♡）
 
@@ -81,8 +60,3 @@ $ cd ringoyaki
 $ docker-compose build
 $ docker-compose up
 ```
-
-## Webサイトを公開する
-
-Github Pagesを使って公開することができます。
-詳細は後日書きます。
