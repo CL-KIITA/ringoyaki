@@ -1,4 +1,5 @@
 {
+    "language": "English",
     "translations": [
         {
             "id": "001",
@@ -7,6 +8,38 @@
         {
             "id": "002",
             "translation": "She is my mother."
+        },
+        {
+            "id": "003",
+            "translation": "This is a beautiful flower."
+        },
+        {
+            "id": "004",
+            "translation": "This is the flower I picked."
+        },
+        {
+            "id": "005a",
+            "translation": "What he killed?"
+        },
+        {
+            "id": "005b",
+            "translation": "Who killed the fish?"
+        },
+        {
+            "id": "006",
+            "translation": "I am taller than him."
+        },
+        {
+            "id": "007",
+            "translation": "The fish swim well."
+        },
+        {
+            "id": "008",
+            "translation": "He doesn't kill fish."
+        },
+        {
+            "id": "009",
+            "translation": "He can kill fish."
         }
     ]
 }

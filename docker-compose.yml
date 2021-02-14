@@ -6,6 +6,6 @@ services:
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
-    command: sh -c "npm run start"
+    command: sh -c "npm run start-docker"
     ports:
-      - 3000:3000
+      - "3000:3000"
