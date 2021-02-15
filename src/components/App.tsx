@@ -1,7 +1,9 @@
 import {
+  Box,
   Card,
   CardContent,
   Container,
+  LinearProgress,
   Paper,
   SvgIcon,
 } from "@material-ui/core";
@@ -54,14 +56,29 @@ export default function App() {
     translations: translation.translations,
     originals: original.originals,
   };
+  const rate =
+    (apples.translations.filter((x) => x.translation !== "").length /
+      apples.originals.length) *
+    100;
 
   translation.translations.map((item: object) => console.log(item));
   return (
     <Container className="reactApp">
-      <Typography className={classes.pos} variant="h4" component="h1">
+      <Typography variant="h4" component="h1">
         SCJ共通りんご文・
         <span className={classes.blue}>{apples.language}</span>
       </Typography>
+      <Box display="flex" alignItems="center">
+        <Box width="100%" mr={1}>
+          <LinearProgress variant="determinate" value={rate} />
+        </Box>
+        <Box minWidth={35}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+          >{`翻訳率 ${Math.round(rate)}%`}</Typography>
+        </Box>
+      </Box>
       {apples.translations.map(
         (item: { id: String; translation: String; note: String }) => {
           let original = apples.originals.find((x) => x.id == item.id);
