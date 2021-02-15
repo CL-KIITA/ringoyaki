@@ -3,43 +3,53 @@
     "translations": [
         {
             "id": "001",
-            "translation": "He killed a fish."
+            "translation": "He killed a fish.",
+            "note": "英語はSVO（主語-動詞-目的語）の語順をとります。"
         },
         {
             "id": "002",
-            "translation": "She is my mother."
+            "translation": "She is my mother.",
+            "note": "英語はGen. N（属格-名詞）の語順をとります。"
         },
         {
             "id": "003",
-            "translation": "This is a beautiful flower."
+            "translation": "This is a beautiful flower.",
+            "note": "英語はAN（形容詞-名詞）の順序の語順をとります。"
         },
         {
             "id": "004",
-            "translation": "This is the flower I picked."
+            "translation": "This is the flower I picked.",
+            "note": "英語はN Rel. （名詞-関係詞）の順序の語順をとります。"
         },
         {
             "id": "005a",
-            "translation": "What he killed?"
+            "translation": "What did he kill?",
+            "note": "英語では疑問詞が文頭に移動します。"
         },
         {
             "id": "005b",
-            "translation": "Who killed the fish?"
+            "translation": "Who killed the fish?",
+            "note": "英語では疑問詞が文頭に移動します。"
         },
         {
             "id": "006",
-            "translation": "I am taller than him."
+            "translation": "I am taller than him.",
+            "note": "比較の基準と形容詞の順序"
         },
         {
             "id": "007",
-            "translation": "The fish swim well."
+            "translation": "Fishes swim well.",
+            "note": "英語では副詞は基本的に動詞の後ろに来ます。"
         },
         {
             "id": "008",
-            "translation": "He doesn't kill fish."
+            "translation": "He doesn't kill fish.",
+            "note": "英語では動詞の否定形は、動詞の前に否定語を置きます。doesn't は does not の短縮形です。"
         },
         {
             "id": "009",
-            "translation": "He can kill fish."
+            "translation": "He can kill fish.",
+            "note": "英語では助動詞は主動詞の前におきます。"
         }
     ]
 }

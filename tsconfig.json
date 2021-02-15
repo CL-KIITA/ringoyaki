@@ -14,5 +14,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
+  "include": ["src/components", "src/custom.d.ts"],
   "exclude": ["node_modules", "webpack.config.js", "dist"]
 }

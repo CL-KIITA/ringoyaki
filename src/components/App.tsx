@@ -1,9 +1,16 @@
-import { Card, CardContent, Container, Paper } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  Container,
+  Paper,
+  SvgIcon,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import original from "../data/original.json";
 import translation from "../data/translation.json";
+import appleIcon from "../icons/apple.svg";
 
 const useStyles = makeStyles({
   root: {
@@ -23,8 +30,15 @@ const useStyles = makeStyles({
   },
   blue: {
     color: "#4ea5f9",
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif'
-  }
+  },
+  icon: {
+    width: "1rem",
+    height: "1rem",
+    float: "left",
+    margin: "0 0.2rem 0 0",
+    position: "relative",
+    top: "0.1rem",
+  },
 });
 
 function assertIsDefined<T>(val: T): asserts val is NonNullable<T> {
@@ -44,30 +58,49 @@ export default function App() {
   translation.translations.map((item: object) => console.log(item));
   return (
     <Container className="reactApp">
-      <h1>SCJ共通りんご文・<span className={classes.blue}>{apples.language}</span></h1>
-      {apples.translations.map((item: { id: String; translation: String }) => {
-        let original = apples.originals.find((x) => x.id == item.id);
-        assertIsDefined(original);
-        return item.translation !== "" ? (
-          <div>
-            <Card className={classes.root} variant="outlined">
-              <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
-                  {item.id}
-                </Typography>
-                <Typography variant="h5" component="h2">
-                  {item.translation}
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                  {original.sentence}
-                </Typography>
-              </CardContent>
-            </Card>
-          </div>
-        ) : (
-          ""
-        );
-      })}
-    </Container >
+      <Typography className={classes.pos} variant="h4" component="h1">
+        SCJ共通りんご文・
+        <span className={classes.blue}>{apples.language}</span>
+      </Typography>
+      {apples.translations.map(
+        (item: { id: String; translation: String; note: String }) => {
+          let original = apples.originals.find((x) => x.id == item.id);
+          assertIsDefined(original);
+          return item.translation !== "" ? (
+            <div>
+              <Card className={classes.root}>
+                <CardContent>
+                  <Typography
+                    className={classes.title}
+                    color="textSecondary"
+                    gutterBottom
+                  >
+                    {item.id}
+                  </Typography>
+                  <Typography variant="h5" component="h2">
+                    {item.translation}
+                  </Typography>
+                  <Typography className={classes.pos} color="textSecondary">
+                    {original.sentence}
+                  </Typography>
+                  {item.note !== "" ? (
+                    <span>
+                      <img className={classes.icon} src={appleIcon} />
+                      <Typography variant="body2" component="p">
+                        {item.note}
+                      </Typography>
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          ) : (
+            ""
+          );
+        }
+      )}
+    </Container>
   );
 }
