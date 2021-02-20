@@ -80,7 +80,7 @@ export default function App() {
         </Box>
       </Box>
       {apples.translations.map(
-        (item: { id: String; translation: String; note: String }) => {
+        (item: { id: String; translation: String; note?: String }) => {
           let original = apples.originals.find((x) => x.id == item.id);
           assertIsDefined(original);
           return item.translation !== "" ? (
@@ -100,13 +100,13 @@ export default function App() {
                   <Typography className={classes.pos} color="textSecondary">
                     {original.sentence}
                   </Typography>
-                  {item.note !== "" ? (
-                    <span>
+                  {item.note != undefined && item.note !== "" ? (
+                    <>
                       <img className={classes.icon} src={appleIcon} />
                       <Typography variant="body2" component="p">
                         {item.note}
                       </Typography>
-                    </span>
+                    </>
                   ) : (
                     ""
                   )}
